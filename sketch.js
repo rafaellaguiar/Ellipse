@@ -12,7 +12,7 @@ function setup() {
   focalPoint2 = createVector(h, k)
 }
 
-function mouseDragged(event) {
+function mouseDragged() {
   focalPoint.x = mouseX
   focalPoint2.x = width - mouseX
 }
