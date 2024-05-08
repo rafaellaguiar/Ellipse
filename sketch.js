@@ -1,11 +1,13 @@
-let altura = 400
+let altura
 let focalPoint, focalPoint2, centro, pontoB, pontoB2, pontoA
 let larguraElipse, c, h ,k
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(700, 700);
   
   h = height / 2
   k = width / 2
+  
+  altura = height / 3
   
   focalPoint = createVector(h, k)
   focalPoint2 = createVector(h, k)
@@ -59,7 +61,7 @@ function drawEllipse() {
   centro = createVector(h, k)
   
   c = focalPoint.dist(centro)
-  
+
   pontoB = createVector(h, altura)
   pontoB.y = centro.y - centro.dist(pontoB)
   
@@ -77,10 +79,11 @@ function drawEllipse() {
   }
   
   larguraElipse = pontoA.dist(centro) * 2
+  alturaElipse = pontoB.y
   
   noFill();
   stroke(20);
-  ellipse(h, k, larguraElipse, pontoB.y)
+  ellipse(h, k, larguraElipse, alturaElipse)
 }
 
 function drawLine(v1, v2) {
