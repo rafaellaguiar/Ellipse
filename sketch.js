@@ -1,6 +1,6 @@
 let altura = 400
 let focalPoint, focalPoint2, centro, pontoB, pontoB2, pontoA
-let tamElipse, c, h ,k
+let larguraElipse, c, h ,k
 function setup() {
   createCanvas(600, 600);
   
@@ -12,11 +12,8 @@ function setup() {
 }
 
 function mouseDragged(event) {
-  if(pontoA.x < height){
-    focalPoint.x = mouseX
-    focalPoint2.x = width - mouseX
-  }
-
+  focalPoint.x = mouseX
+  focalPoint2.x = width - mouseX
 }
 
 function draw() {
@@ -64,15 +61,12 @@ function drawEllipse() {
   c = focalPoint.dist(centro)
   
   pontoB = createVector(h, altura)
-  
   pontoB.y = centro.y - centro.dist(pontoB)
   
   pontoB2 = createVector(h, altura)
-  
   pontoB2.y = centro.y + centro.dist(pontoB2)
   
   pontoA = createVector(0,k)
-  
   pontoA.x = sqrt(pow(pontoB.y, 2) + pow(c, 2)) * 2
   
   pontoA2 = createVector(width - pontoA.x, k)
@@ -82,11 +76,11 @@ function drawEllipse() {
     pontoA2.x = 0
   }
   
-  tamElipse = pontoA.dist(centro) * 2
+  larguraElipse = pontoA.dist(centro) * 2
   
   noFill();
   stroke(20);
-  ellipse(h, k, tamElipse, pontoB.y)
+  ellipse(h, k, larguraElipse, pontoB.y)
 }
 
 function drawLine(v1, v2) {
