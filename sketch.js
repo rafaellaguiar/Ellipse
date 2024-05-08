@@ -1,6 +1,5 @@
-let altura
 let focalPoint, focalPoint2, centro, pontoB, pontoB2, pontoA
-let larguraElipse, c, h ,k
+let larguraElipse, c, h ,k, altura
 function setup() {
   createCanvas(700, 700);
   
