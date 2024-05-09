@@ -6,7 +6,7 @@ function setup() {
   h = height / 2
   k = width / 2
   
-  altura = 100
+  altura = 200
   
   translate(height/2, width/2)
   
@@ -14,7 +14,7 @@ function setup() {
   focalPoint2 = createVector(h, k)
 }
 
-function mouseDragged(event) {
+function mouseDragged() {
   focalPoint.x = mouseX
   focalPoint2.x = width - mouseX
 }
