@@ -1,18 +1,20 @@
 let focalPoint, focalPoint2, centro, pontoB, pontoB2, pontoA
 let larguraElipse, c, h ,k, altura
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(800, 800);
   
   h = height / 2
   k = width / 2
   
-  altura = height / 3
+  altura = 100
+  
+  translate(height/2, width/2)
   
   focalPoint = createVector(h, k)
   focalPoint2 = createVector(h, k)
 }
 
-function mouseDragged() {
+function mouseDragged(event) {
   focalPoint.x = mouseX
   focalPoint2.x = width - mouseX
 }
@@ -61,14 +63,14 @@ function drawEllipse() {
   
   c = focalPoint.dist(centro)
 
-  pontoB = createVector(h, altura)
-  pontoB.y = centro.y - centro.dist(pontoB)
+  pontoB = createVector(h, dist(h, altura, centro.x, centro.y))
   
-  pontoB2 = createVector(h, altura)
-  pontoB2.y = centro.y + centro.dist(pontoB2)
+  pontoB2 = createVector(h, height - dist(h, altura, centro.x, centro.y))
   
   pontoA = createVector(0,k)
-  pontoA.x = sqrt(pow(pontoB.y, 2) + pow(c, 2)) * 2
+  a = sqrt(pow(altura, 2) + pow(c, 2))
+  
+  pontoA.x = a + k
   
   pontoA2 = createVector(width - pontoA.x, k)
   
@@ -78,7 +80,7 @@ function drawEllipse() {
   }
   
   larguraElipse = pontoA.dist(centro) * 2
-  alturaElipse = pontoB.y
+  alturaElipse = altura * 2
   
   noFill();
   stroke(20);
@@ -94,7 +96,7 @@ function drawLine(v1, v2) {
 function drawDot(v, cor) {
   fill(cor);
   noStroke();
-  circle(v.x, v.y, 15)
+  circle(v.x, v.y, 10)
 }
 
 function setLineDash(list) {
