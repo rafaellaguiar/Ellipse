@@ -1,12 +1,12 @@
 let focalPoint, focalPoint2, centro, pontoB, pontoB2, pontoA
-let larguraElipse, c, h ,k, altura
+let larguraElipse, c, h ,k
+let altura = 100
+
 function setup() {
   createCanvas(800, 800);
   
   h = height / 2
   k = width / 2
-  
-  altura = 200
   
   translate(height/2, width/2)
   
@@ -40,8 +40,14 @@ function draw() {
   drawLine(pontoB2, focalPoint)
   drawLine(pontoB2, focalPoint2)
   
-  drawLine(pontoA, focalPoint)
-  drawLine(pontoA2, focalPoint2)
+  if(focalPoint.x < h) {
+    drawLine(pontoA2, focalPoint)
+    drawLine(pontoA, focalPoint2)
+  } else {
+    drawLine(pontoA, focalPoint)
+    drawLine(pontoA2, focalPoint2)
+  }
+
   setLineDash([])
   
   drawDot(focalPoint, focalPointCor)
